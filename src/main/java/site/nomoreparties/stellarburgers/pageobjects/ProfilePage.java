@@ -22,22 +22,22 @@ public class ProfilePage {
     private SelenideElement inscriptionProfile;
 
     //метод для нажатия кнопки конструктор
-    public void clickButtonConstructor(){
+    public void clickButtonConstructor() {
         buttonConstructor.click();
     }
 
     //метод для клика на логотип
-    public void clickLogo(){
+    public void clickLogo() {
         logo.click();
     }
 
     //метод нажатия кнопки "Выход"
-    public void clickButtonExit(){
+    public void clickButtonExit() {
         buttonExit.click();
     }
 
     //метод, возвращающий надпись "Профиль"
-    public String returnInscriptionProfile(){
+    public String returnInscriptionProfile() {
         return inscriptionProfile.getText();
     }
 }

@@ -1,4 +1,5 @@
 package site.nomoreparties.stellarburgers.pageobjects;
+
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -33,44 +34,44 @@ public class RegistrationPage {
     private SelenideElement buttonLogin;
 
     //метод для нажатия кнопки "Зарегистрироваться"
-    public void clickRegistrationButton(){
+    public void clickRegistrationButton() {
         registrationButton.click();
     }
 
     //метод заполнения поля Имя
-    public void fillInTheNameField(String name){
+    public void fillInTheNameField(String name) {
         fieldEnterName.setValue(name);
     }
 
     //метод заполнения поля Email
-    public void fillInTheEmailField(String email){
+    public void fillInTheEmailField(String email) {
         fieldEnterEmail.setValue(email);
     }
 
     //метод заполнения поля Пароль
-    public void fillInThePasswordField(String password){
+    public void fillInThePasswordField(String password) {
         fieldEnterPassword.setValue(password);
     }
 
     //метод, возвращающий текст после успешной регистрации
-    public String returnTextAfterSuccessRegistration(){
+    public String returnTextAfterSuccessRegistration() {
         return inscriptionEntrance.getText();
     }
 
     //метод, возвращающий текст при введение пароля некорректной длины
-    public String returnTextAfterFailedRegistration(){
+    public String returnTextAfterFailedRegistration() {
         return inscriptionIncorrectPassword.getText();
     }
 
     //метод для заполнения формы регистрации
-    public void fillInRegistrationForm(String name, String email, String password){
+    public void fillInRegistrationForm(String name, String email, String password) {
         fillInTheNameField(name);
         fillInTheEmailField(email);
         fillInThePasswordField(password);
     }
 
     //метод нажатия кнопки "Войти"
-    public void clickButtonLogin(){
+    public void clickButtonLogin() {
         buttonLogin.click();
     }
 }

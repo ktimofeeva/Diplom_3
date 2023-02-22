@@ -27,28 +27,28 @@ public class LoginPage {
     private SelenideElement inscriptionEntrance;
 
     //метод заполнения поля Email
-    public void fillInTheEmailField(String email){
+    public void fillInTheEmailField(String email) {
         fieldEnterEmail.setValue(email);
     }
 
     //метод заполнения поля Пароль
-    public void fillInThePasswordField(String password){
+    public void fillInThePasswordField(String password) {
         fieldEnterPassword.setValue(password);
     }
 
     //метод для нажатия кнопки "Войти"
-    public void clickButtonLogin(){
+    public void clickButtonLogin() {
         buttonLogin.click();
     }
 
     //метод для заполнения формы входа
-    public void fillInLoginForm(String email, String password){
+    public void fillInLoginForm(String email, String password) {
         fillInTheEmailField(email);
         fillInThePasswordField(password);
     }
 
     //метод, вохвращающий надпись "Вход"
-    public String returnInscriptionEntrance(){
+    public String returnInscriptionEntrance() {
         return inscriptionEntrance.getText();
     }
 }

@@ -11,7 +11,7 @@ public class ForgotPassword {
     private SelenideElement buttonLogin;
 
     //метод нажатия кнопки "Войти"
-    public void clickButtonLogin(){
+    public void clickButtonLogin() {
         buttonLogin.click();
     }
 }

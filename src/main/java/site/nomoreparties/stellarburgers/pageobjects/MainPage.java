@@ -1,4 +1,5 @@
 package site.nomoreparties.stellarburgers.pageobjects;
+
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -39,69 +40,69 @@ public class MainPage {
 
     //локатор заголовка "Булки"
     @FindBy(how = How.XPATH, using = ".//h2[text()='Булки']")
-    private SelenideElement  inscriptionRolls;
+    private SelenideElement inscriptionRolls;
 
     //локатор заголовка "Соусы"
     @FindBy(how = How.XPATH, using = ".//h2[text()='Соусы']")
-    private SelenideElement  inscriptionSauces;
+    private SelenideElement inscriptionSauces;
 
     //локатор заголовка "Начинки"
     @FindBy(how = How.XPATH, using = ".//h2[text()='Начинки']")
-    private SelenideElement  inscriptionToppings;
+    private SelenideElement inscriptionToppings;
 
 
     //метод, возвращающий текст кнопки для оформления заказа
-    public String returnTextButtonPlaceAnOrder(){
+    public String returnTextButtonPlaceAnOrder() {
         return buttonPlaceAnOrder.getText();
     }
 
     //метод нажатия кнопки "Войти в аккаунт"
-    public void clickButtonSignIn(){
+    public void clickButtonSignIn() {
         buttonSignIn.click();
     }
 
     //метод нажатия кнопки "Личный Кабинет"
-    public void clickButtonAccount(){
+    public void clickButtonAccount() {
         buttonAccount.click();
     }
 
     //метод для клика на логотип
-    public void clickLogo(){
+    public void clickLogo() {
         logo.click();
     }
 
     //метод, возвращающий текст "Соберите бургер"
-    public String returnBurgerConstructorTitle(){
+    public String returnBurgerConstructorTitle() {
         return burgerСonstructor.getText();
     }
 
     //метод нажатия кнопки "Булки"
-    public void clickButtonRolls(){
+    public void clickButtonRolls() {
         buttonRolls.click();
     }
 
     //метод нажатия кнопки "Соусы"
-    public void clickButtonSauces(){
+    public void clickButtonSauces() {
         buttonSauces.click();
     }
 
     //метод нажатия кнопки "Начинки"
-    public void clickButtonToppings(){
+    public void clickButtonToppings() {
         buttonToppings.click();
     }
 
     //метод, возвращающий заголовок "Булки"
-    public String returnInscriptionRolls(){
+    public String returnInscriptionRolls() {
         return inscriptionRolls.getText();
     }
 
     //метод, возвращающий заголовок "Соусы"
-    public String returnInscriptionSauces(){
+    public String returnInscriptionSauces() {
         return inscriptionSauces.getText();
     }
 
     //метод, возвращающий заголовок "Начинки"
-    public String returnInscriptionToppings(){
+    public String returnInscriptionToppings() {
         return inscriptionToppings.getText();
     }
 }

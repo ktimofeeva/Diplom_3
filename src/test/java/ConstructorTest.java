@@ -1,3 +1,4 @@
+import io.qameta.allure.junit4.DisplayName;
 import org.hamcrest.MatcherAssert;
 import org.junit.After;
 import org.junit.Before;
@@ -14,9 +15,9 @@ public class ConstructorTest {
     private MainPage mainPage;
 
     @Before
-    public void SetUp(){
-        loginPage = open("https://stellarburgers.nomoreparties.site/login",LoginPage.class);
-        loginPage.fillInLoginForm("kristim@yandex.ru","kristim");
+    public void SetUp() {
+        loginPage = open("https://stellarburgers.nomoreparties.site/login", LoginPage.class);
+        loginPage.fillInLoginForm("kristim@yandex.ru", "kristim");
         loginPage.clickButtonLogin();
         mainPage = page(MainPage.class);
     }
@@ -27,21 +28,24 @@ public class ConstructorTest {
     }
 
     @Test
-    public void transitionOnRolls(){
+    @DisplayName("Переход к разделу Булки")
+    public void transitionOnRolls() {
         mainPage.clickButtonSauces();
         mainPage.clickButtonRolls();
-        MatcherAssert.assertThat(mainPage.returnInscriptionRolls(),startsWith("Булки"));
+        MatcherAssert.assertThat(mainPage.returnInscriptionRolls(), startsWith("Булки"));
     }
 
     @Test
-    public void transitionOnSauces(){
+    @DisplayName("Переход к разделу Соусы")
+    public void transitionOnSauces() {
         mainPage.clickButtonSauces();
-        MatcherAssert.assertThat(mainPage.returnInscriptionSauces(),startsWith("Соусы"));
+        MatcherAssert.assertThat(mainPage.returnInscriptionSauces(), startsWith("Соусы"));
     }
 
     @Test
-    public void transitionOnToppings(){
+    @DisplayName("Переход к разделу Начинки")
+    public void transitionOnToppings() {
         mainPage.clickButtonToppings();
-        MatcherAssert.assertThat(mainPage.returnInscriptionToppings(),startsWith("Начинки"));
+        MatcherAssert.assertThat(mainPage.returnInscriptionToppings(), startsWith("Начинки"));
     }
 }

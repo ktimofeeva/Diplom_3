@@ -1,3 +1,4 @@
+import io.qameta.allure.junit4.DisplayName;
 import org.hamcrest.MatcherAssert;
 import org.junit.After;
 import org.junit.Before;
@@ -15,7 +16,7 @@ public class LoginTest {
     private MainPage mainPage;
 
     @Before
-    public void SetUp(){
+    public void SetUp() {
         mainPage = open("https://stellarburgers.nomoreparties.site/", MainPage.class);
     }
 
@@ -25,42 +26,46 @@ public class LoginTest {
     }
 
     @Test
-    public void loginFromButtonOnRegistrationPage(){
+    @DisplayName("Авторизация через кнопку в форме регистрации")
+    public void loginFromButtonOnRegistrationPage() {
         RegistrationPage registrationPage =
                 open("https://stellarburgers.nomoreparties.site/register", RegistrationPage.class);
         registrationPage.clickButtonLogin();
         LoginPage loginPage = page(LoginPage.class);
-        loginPage.fillInLoginForm("kristim@yandex.ru","kristim");
+        loginPage.fillInLoginForm("kristim@yandex.ru", "kristim");
         loginPage.clickButtonLogin();
-        MatcherAssert.assertThat(mainPage.returnTextButtonPlaceAnOrder(),startsWith("Оформить заказ"));
+        MatcherAssert.assertThat(mainPage.returnTextButtonPlaceAnOrder(), startsWith("Оформить заказ"));
     }
 
     @Test
-    public void loginFromButtonLoginInAccountOnMainPage(){
+    @DisplayName("Авторизация по кнопке Войти в аккаунт на главной странице")
+    public void loginFromButtonLoginInAccountOnMainPage() {
+        mainPage.clickButtonSignIn();
+        LoginPage loginPage = page(LoginPage.class);
+        loginPage.fillInLoginForm("kristim@yandex.ru", "kristim");
+        loginPage.clickButtonLogin();
+        MatcherAssert.assertThat(mainPage.returnTextButtonPlaceAnOrder(), startsWith("Оформить заказ"));
+    }
+
+    @Test
+    @DisplayName("Авторизация по кнопке Личный кабинет")
+    public void loginFromButtonAccountOnMainPage() {
         mainPage.clickButtonAccount();
         LoginPage loginPage = page(LoginPage.class);
-        loginPage.fillInLoginForm("kristim@yandex.ru","kristim");
+        loginPage.fillInLoginForm("kristim@yandex.ru", "kristim");
         loginPage.clickButtonLogin();
-        MatcherAssert.assertThat(mainPage.returnTextButtonPlaceAnOrder(),startsWith("Оформить заказ"));
+        MatcherAssert.assertThat(mainPage.returnTextButtonPlaceAnOrder(), startsWith("Оформить заказ"));
     }
 
     @Test
-    public void loginFromButtonAccountOnMainPage(){
-        mainPage.clickButtonAccount();
-        LoginPage loginPage = page(LoginPage.class);
-        loginPage.fillInLoginForm("kristim@yandex.ru","kristim");
-        loginPage.clickButtonLogin();
-        MatcherAssert.assertThat(mainPage.returnTextButtonPlaceAnOrder(),startsWith("Оформить заказ"));
-    }
-
-    @Test
-    public void loginFromButtonLoginOnForgotPasswordPage(){
+    @DisplayName("Вход через кнопку в форме восстановления пароля")
+    public void loginFromButtonLoginOnForgotPasswordPage() {
         ForgotPassword forgotPassword =
-                open("https://stellarburgers.nomoreparties.site/forgot-password",ForgotPassword.class);
+                open("https://stellarburgers.nomoreparties.site/forgot-password", ForgotPassword.class);
         forgotPassword.clickButtonLogin();
         LoginPage loginPage = page(LoginPage.class);
-        loginPage.fillInLoginForm("kristim@yandex.ru","kristim");
+        loginPage.fillInLoginForm("kristim@yandex.ru", "kristim");
         loginPage.clickButtonLogin();
-        MatcherAssert.assertThat(mainPage.returnTextButtonPlaceAnOrder(),startsWith("Оформить заказ"));
+        MatcherAssert.assertThat(mainPage.returnTextButtonPlaceAnOrder(), startsWith("Оформить заказ"));
     }
 }
